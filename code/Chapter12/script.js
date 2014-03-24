@@ -594,9 +594,11 @@ sanFranciscoMap.on('brushing', function (brush) {
 });
 
 var loaded = 0;
+console.log( "zurich0" + loaded );
 
 zurichDataManager.on('dataReady', function () {
   loaded ++;
+  console.log( "zurich" + loaded );
   if(loaded==2) {
     d3.select('#wait').style('visibility', 'hidden');
     d3.select('#ready').style('visibility', 'visible');
@@ -605,6 +607,7 @@ zurichDataManager.on('dataReady', function () {
 
 sanFranciscoDataManager.on('dataReady', function () {
   loaded ++;
+  console.log( "SF" + loaded )
   if(loaded==2) {
     d3.select('#wait').style('visibility', 'hidden');
     d3.select('#ready').style('visibility', 'visible');
@@ -613,6 +616,7 @@ sanFranciscoDataManager.on('dataReady', function () {
 
 genevaDataManager.on('dataReady', function () {
   loaded ++;
+  console.log( "Geneva" + loaded )
   if(loaded==2) {
     d3.select('#wait').style('visibility', 'hidden');
     d3.select('#ready').style('visibility', 'visible');

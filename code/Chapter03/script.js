@@ -28,10 +28,13 @@ d3.edge.table = function module() {
 // To use it, first we ask the module to give us the function
 var table = d3.edge.table();
 
-// We pass a selection with some data bound to it
+// SAI - 3/17/14: the above function is called TWICE, producing, two lines of output. 2 looks
+// much more familiar D3 syntax.
+
+// 1. We pass a selection with some data bound to it
 table(d3.select("#figure").datum(dataset));
 
-// The same thing can be written using a more typical d3 pattern
+// 2. The same thing can be written using a more typical d3 pattern
 // We select an element
 d3.select("#figure")
     // bind data to it
@@ -59,7 +62,9 @@ d3.edge.table = function module() {
                 .html("Hello World: " + _data);
         });
     }
-    // The "public" methods can be set to the "exports" function
+
+    // SAI - 3/17/14 - two ways to do same thing.  latter is preferable.
+    // 1. The "public" methods can be set to the "exports" function
     // For example some getters and setters
     exports.setFontSize = function(_size) {
         fontSize = _size;
@@ -67,7 +72,8 @@ d3.edge.table = function module() {
         return this;
     };
     exports.getFontSize = function() { return fontSize; };
-    // But the typical d3 pattern is to have setter that become a getter when no arguments
+
+    // 2. But the typical d3 pattern is to have setter that become a getter when no arguments
     exports.fontColor = function(_x) {
         if (!arguments.length) return fontColor;
         fontColor = _x;
@@ -80,7 +86,7 @@ var table = d3.edge.table();
 // Setters can be chained
 table.setFontSize("20").fontColor("green");
 // Setters are getters when called without argument
-console.log(table.fontColor());
+console.log(table.fontColor()); // green now, not red
 
 d3.select("#figure")
     .datum(dataset)

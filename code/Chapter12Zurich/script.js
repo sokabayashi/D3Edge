@@ -473,7 +473,7 @@ var loaded = 0;
 
 zurichDataManager.on('dataReady', function () {
   loaded ++;
-  if(loaded==2) {
+  if(loaded==1) {
     d3.select('#wait').style('visibility', 'hidden');
     d3.select('#ready').style('visibility', 'visible');
   }
